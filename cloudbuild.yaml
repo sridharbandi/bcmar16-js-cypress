@@ -17,7 +17,7 @@ steps:
 
 artifacts:
   objects:
-    location: gs://bootcamp/cypress-reports/
+    location: gs://bootcamp-axone/cypress-reports/
     paths:
       - 'cypress/reports/html/**'
 
