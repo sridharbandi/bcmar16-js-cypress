@@ -1,19 +1,26 @@
 steps:
-  # install dependencies
+  # Install dependencies
   - id: install-dependencies
     name: node
     entrypoint: yarn
     args: ['install']
     env:
-    - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
+      - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
 
-  # run cypress
+  # Run Cypress tests
   - id: run-cypress
     name: cypress/included:7.0.1
     entrypoint: yarn
     args: ['run', 'test']
     env:
-    - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
+      - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
+
+artifacts:
+  objects:
+    location: gs://bootcamp/cypress-reports/
+    paths:
+      - 'cypress/reports/html/**'
+
 options:
   machineType: 'E2_HIGHCPU_8'
   logging: CLOUD_LOGGING_ONLY
