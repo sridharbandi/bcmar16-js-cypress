@@ -16,3 +16,4 @@ steps:
     - 'CYPRESS_CACHE_FOLDER=/workspace/.tmp/Cypress'
 options:
   machineType: 'E2_HIGHCPU_8'
+  logging: CLOUD_LOGGING_ONLY
